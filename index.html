@@ -60,20 +60,15 @@
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
         if (prediction[0].probability.toFixed(2) > 0.80){
-            var audio = new Audio('2.mp3');
-            audio.play();
+            labelContainer.childNodes[0].innerHTML = "燃えないゴミ"
+        } else if(predicition[1].probability.toFixed(2) > 0.80){
+            labelContainer.childNodes[0].innerHTML = "資源ゴミ"
         } else if(predicition[0].probability.toFixed(2) > 0.80){
-            var audio = new Audio('3.mp3');
-            audio.play();
+            labelContainer.childNodes[0].innerHTML = "資源ゴミ"
         } else if(predicition[0].probability.toFixed(2) > 0.80){
-            var audio = new Audio('2.mp3');
-            audio.play();
+            labelContainer.childNodes[0].innerHTML = "燃えないゴミ"
         } else if(predicition[0].probability.toFixed(2) > 0.80){
-            var audio = new Audio('3.mp3');
-            audio.play();
-        } else if(predicition[0].probability.toFixed(2) > 0.80){
-            var audio = new Audio('1.mp3');
-            audio.play();
+            labelContainer.childNodes[0].innerHTML = "燃えるゴミ"
         }
     }
 </script>
