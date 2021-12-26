@@ -59,10 +59,21 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
+
+        if(prediction[0].probability.toFixed(2) > 0.70){
+            labelContainer.childNodes[0].innerHTML = "燃えないゴミ"
+
+        } else if(prediction[1].probability.toFixed(2) > 0.70){
+            labelContainer.childNodes[0].innerHTML = "燃えるゴミ"
+
+        } else if(prediction[2].probability.toFixed(2) > 0.70){
+            labelContainer.childNodes[0].innerHTML = "資源ゴミ"
+
+        } else if(prediction[3].probability.toFixed(2) > 0.70){
+            labelContainer.childNodes[0].innerHTML = "資源ゴミ"
+
+        } else if(prediction[4].probability.toFixed(2) > 0.70){
+            labelContainer.childNodes[0].innerHTML = "資源ゴミ"
         }
     }
 </script>
