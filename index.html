@@ -62,18 +62,16 @@
 
         if(prediction[0].probability.toFixed(2) > 0.70){
             labelContainer.childNodes[0].innerHTML = "燃えないゴミ"
-
         } else if(prediction[1].probability.toFixed(2) > 0.70){
             labelContainer.childNodes[0].innerHTML = "燃えるゴミ"
-
         } else if(prediction[2].probability.toFixed(2) > 0.70){
             labelContainer.childNodes[0].innerHTML = "資源ゴミ"
-
         } else if(prediction[3].probability.toFixed(2) > 0.70){
             labelContainer.childNodes[0].innerHTML = "資源ゴミ"
-
         } else if(prediction[4].probability.toFixed(2) > 0.70){
             labelContainer.childNodes[0].innerHTML = "資源ゴミ"
+        } else{
+            labelContainer.childNodes[0].innerHTML = "分かりません"
         }
     }
 </script>
